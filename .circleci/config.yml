@@ -48,7 +48,7 @@ jobs:
           name: Adding scripts
           command: |
             if [ ! -d "$SCRIPTS_LOCAL_FOLDER" ]; then
-              echo "Repo does not exists in local path: $SCRIPTS_LOCAL_FOLDER"
+     # echo "Repo does not exists in local path: $SCRIPTS_LOCAL_FOLDER"
               git clone $SCRIPTS_REPO_PATH $SCRIPTS_LOCAL_FOLDER
             else
               echo "Repo exists in local path: $SCRIPTS_LOCAL_FOLDER"
