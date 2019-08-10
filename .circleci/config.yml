@@ -11,11 +11,11 @@ jobs:
       xcode: "10.2.1"
     shell: /bin/bash --login -eo pipefail
     environment:
-      - PROJECT_NAME: "ZappPlayerPluginBaby-iOS"
+      - PROJECT_NAME: "ZappPlayerPluginBaby"
       - SCHEME_NAME: "ZappPlayerPluginBaby"
       - SCRIPTS_LOCAL_FOLDER: "~/.scripts-iOS"
       - SCRIPTS_REPO_PATH: "git@github.com:applicaster/Scripts-iOS.git"
-      - DEPLOY_VERSION: "0.7.1"
+      - DEPLOY_VERSION: "0.8.10"
       - DEPLOY_COMMAND: "~/.scripts-iOS/circleCi/deployPluginFamily.sh"
     working_directory: ~/ZappPlayerPluginBaby-iOS
     steps:
@@ -30,17 +30,17 @@ jobs:
       # Prepere Git and Submodules
       - restore_cache:
           name: Git - restore cache
-          key: Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: app-ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           keys:
-            - Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}
-            - Zapp-PlayerPlugins-v1.2-{{ .Branch }}-
-            - Zapp-PlayerPlugins-v1.2-
+            - ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}
+            - ZappPlayerPluginBaby-v1.2-{{ .Branch }}-
+            - ZappPlayerPluginBaby-v1.2-
 
       - checkout
 
       - save_cache:
           name: Git - save cache
-          key: Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           paths:
             - ".git"
 
@@ -61,7 +61,7 @@ jobs:
       # Prepare Bundler
       - restore_cache:
           name: Bundler - restore cache
-          key: Zapp-PlayerPlugins-v1-{{ checksum "Gemfile.lock" }}
+          key: ZappPlayerPluginBaby-v1-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Bundler - update dependencies
@@ -69,26 +69,14 @@ jobs:
 
       - save_cache:
           name: Bundler - save cache
-          key: Zapp-PlayerPlugins-v1-{{ checksum "Gemfile.lock" }}
+          key: ZappPlayerPluginBaby-v1-{{ checksum "Gemfile.lock" }}
           paths:
             - /Users/distiller/.rubies/ruby-2.4.2/lib/ruby/gems/2.4.0/gems
 
       # Restore Cocoapods cache, save cache on lower level, after pod update
       - restore_cache:
           name: CocoaPods - restore cache
-          key: Zapp-PlayerPlugins-CocoaPods-4
-
-      - run:
-          name: CocoaPods - version
-          command: bundle exec pod --version
-
-      - run:
-          name: Git - submodules update
-          command: |
-            git fetch
-            git checkout .
-            git submodule sync --recursive
-            git submodule update --init --recursive
+          key: app-ZappPlayerPluginBaby-CocoaPods-1
 
       # Pod update
       - run:
@@ -98,16 +86,24 @@ jobs:
       # Cache CocoaPods
       - save_cache:
           name: CocoaPods - save cache
-          key: Zapp-PlayerPlugins-CocoaPods-4
+          key: Zapp-ZappPlayerPluginBaby-CocoaPods-1
           paths:
             - "~/.cocoapods"
             - "Pods"
             - "Podfile.lock"
 
-      # Tests
-      - run:
-          name: Tests - start
-          command: bundle exec fastlane ios test
+       # Deploy
+      - deploy:
+          name: Creating Closed SDK version
+          command: |
+            if [ "$CIRCLE_BRANCH" = "master" ];
+            then
+              echo "Execute deploy script"
+              pod update
+              $DEPLOY_COMMAND $PROJECT_NAME
+            else
+              echo "Branch is not master, deploy process will be skipped"
+            fi
 
       - store_test_results:
           name: Test results - collecting
