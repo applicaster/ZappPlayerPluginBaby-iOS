@@ -6,6 +6,7 @@ install! 'cocoapods', :deterministic_uuids => false
 source 'git@github.com:applicaster/CocoaPods.git'
 source 'git@github.com:applicaster/PluginsBuilderCocoaPods.git'
 source 'git@github.com:CocoaPods/Specs.git'
+source 'git@github.com:applicaster/ZappPlayerPluginBaby-iOS.git'
 
 def shared_pods
   pod 'ZappPlugins'
