@@ -44,19 +44,20 @@ jobs:
           paths:
             - ".git"
 
-      # - run:
-      #     name: Adding scripts
-      #     command: |
-      #       if [ ! -d "$SCRIPTS_LOCAL_FOLDER" ]; then
-      #         git clone $SCRIPTS_REPO_PATH $SCRIPTS_LOCAL_FOLDER
-      #       else
-      #         echo "Repo exists in local path: $SCRIPTS_LOCAL_FOLDER"
-      #         git -C $SCRIPTS_LOCAL_FOLDER fetch
-      #         git -C $SCRIPTS_LOCAL_FOLDER fetch --tags
-      #         git -C $SCRIPTS_LOCAL_FOLDER checkout
-      #         git -C $SCRIPTS_LOCAL_FOLDER pull origin master
-      #       fi
-      #       git -C $SCRIPTS_LOCAL_FOLDER checkout $DEPLOY_VERSION
+      - run:
+          name: Adding scripts
+          command: |
+            if [ ! -d "$SCRIPTS_LOCAL_FOLDER" ]; then
+              echo "Repo does not exists in local path: $SCRIPTS_LOCAL_FOLDER"
+              git clone $SCRIPTS_REPO_PATH $SCRIPTS_LOCAL_FOLDER
+            else
+              echo "Repo exists in local path: $SCRIPTS_LOCAL_FOLDER"
+              git -C $SCRIPTS_LOCAL_FOLDER fetch
+              git -C $SCRIPTS_LOCAL_FOLDER fetch --tags
+              git -C $SCRIPTS_LOCAL_FOLDER checkout
+              git -C $SCRIPTS_LOCAL_FOLDER pull origin master
+            fi
+            git -C $SCRIPTS_LOCAL_FOLDER checkout $DEPLOY_VERSION
 
       # Prepare Bundler
       - restore_cache:
