@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="1" customClass="GAPlayerControlsViewBasicPlayer">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3" userLabel="Controls View">
+                    <rect key="frame" x="389.5" y="319.5" width="245" height="129"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4" userLabel="Background Player Controls">
+                            <rect key="frame" x="0.0" y="0.0" width="245" height="129"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6" userLabel="Stop Button">
+                            <rect key="frame" x="127" y="17" width="95" height="95"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="95" id="8an-t8-ebf"/>
+                                <constraint firstAttribute="height" constant="95" id="zJL-se-a67"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="PLAYER_STOP_CLICKED.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5" userLabel="Replay Button">
+                            <rect key="frame" x="23" y="17" width="95" height="95"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="95" id="oy3-MU-Rj7"/>
+                                <constraint firstAttribute="height" constant="95" id="rFX-i0-cVg"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="PLAYER_REPLAY_CLICKED.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="replayButtonPressed:" destination="1" eventType="touchUpInside" id="11"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="6" firstAttribute="top" secondItem="3" secondAttribute="top" constant="17" id="1az-hp-CFp"/>
+                        <constraint firstItem="5" firstAttribute="top" secondItem="3" secondAttribute="top" constant="17" id="8Wn-yf-DtG"/>
+                        <constraint firstItem="4" firstAttribute="top" secondItem="3" secondAttribute="top" id="C7J-Px-H2t"/>
+                        <constraint firstAttribute="height" constant="129" id="DAf-d9-gQt"/>
+                        <constraint firstAttribute="width" constant="245" id="LnA-Qp-g8y"/>
+                        <constraint firstItem="5" firstAttribute="leading" secondItem="3" secondAttribute="leading" constant="23" id="UMT-bG-q23"/>
+                        <constraint firstAttribute="trailing" secondItem="6" secondAttribute="trailing" constant="23" id="ljU-2f-2mp"/>
+                        <constraint firstItem="4" firstAttribute="leading" secondItem="3" secondAttribute="leading" id="mTa-8Y-wOt"/>
+                        <constraint firstAttribute="bottom" secondItem="4" secondAttribute="bottom" id="u7U-nN-P0A"/>
+                        <constraint firstAttribute="trailing" secondItem="4" secondAttribute="trailing" id="vdI-sq-rXV"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7" userLabel="Lock Button">
+                    <rect key="frame" x="17" y="687" width="64" height="64"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="64" id="Ftv-QB-qtk"/>
+                        <constraint firstAttribute="height" constant="64" id="PqF-OM-HBc"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                    <state key="normal">
+                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <state key="highlighted" image="PLAYER_FLOWER_CLICKED.png">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="13" userLabel="Instructions View">
+                    <rect key="frame" x="81" y="687" width="434" height="64"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="17" userLabel="Background Instructions">
+                            <rect key="frame" x="0.0" y="0.0" width="434" height="64"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="14" userLabel="Instructions Label">
+                            <rect key="frame" x="0.0" y="25" width="434" height="18"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="17" secondAttribute="trailing" id="B8M-ZQ-Mtf"/>
+                        <constraint firstItem="17" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="DUt-mZ-S6I"/>
+                        <constraint firstAttribute="width" constant="434" id="Mtl-Ex-iqm"/>
+                        <constraint firstAttribute="trailing" secondItem="14" secondAttribute="trailing" id="Npo-0U-bpH"/>
+                        <constraint firstItem="17" firstAttribute="top" secondItem="13" secondAttribute="top" id="NzT-MB-zuc"/>
+                        <constraint firstAttribute="bottom" secondItem="17" secondAttribute="bottom" id="UKh-Bp-LYd"/>
+                        <constraint firstAttribute="bottom" secondItem="14" secondAttribute="bottom" constant="21" id="XtZ-Bw-Pbo"/>
+                        <constraint firstAttribute="height" constant="64" id="a6C-d9-Tla"/>
+                        <constraint firstItem="14" firstAttribute="top" secondItem="13" secondAttribute="top" constant="25" id="fb8-R0-CyC"/>
+                        <constraint firstItem="14" firstAttribute="leading" secondItem="13" secondAttribute="leading" id="v81-CK-F6j"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="7" secondAttribute="bottom" constant="17" id="2W5-Yc-XBG"/>
+                <constraint firstItem="13" firstAttribute="centerX" secondItem="1" secondAttribute="centerX" priority="999" id="5Ym-bj-zeK"/>
+                <constraint firstItem="13" firstAttribute="leading" secondItem="7" secondAttribute="trailing" id="Hp5-zg-sPm"/>
+                <constraint firstAttribute="trailing" secondItem="7" secondAttribute="trailing" constant="943" id="YVA-DX-gxG"/>
+                <constraint firstItem="7" firstAttribute="leading" secondItem="1" secondAttribute="leading" constant="17" id="c5x-Bk-EnD"/>
+                <constraint firstItem="13" firstAttribute="centerY" secondItem="7" secondAttribute="centerY" id="eAC-hd-Rc4"/>
+                <constraint firstItem="13" firstAttribute="trailing" secondItem="7" secondAttribute="leading" priority="999" id="eAZ-K1-X4I"/>
+                <constraint firstItem="7" firstAttribute="top" secondItem="1" secondAttribute="top" constant="687" id="qRU-Py-u1r"/>
+                <constraint firstAttribute="centerY" secondItem="3" secondAttribute="centerY" id="uAb-Sg-n99"/>
+                <constraint firstAttribute="centerX" secondItem="3" secondAttribute="centerX" id="xNe-0X-fcF"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="controlsView" destination="3" id="8"/>
+                <outlet property="instructionViewCenterHorizontallyConstraint" destination="5Ym-bj-zeK" id="X7n-VO-lQm"/>
+                <outlet property="instructionViewLeadingConstraint" destination="Hp5-zg-sPm" id="el4-vM-8OK"/>
+                <outlet property="instructionViewTrailingConstraint" destination="eAZ-K1-X4I" id="Lte-k9-Ib0"/>
+                <outlet property="instructionsLabel" destination="14" id="16"/>
+                <outlet property="instructionsView" destination="13" id="15"/>
+                <outlet property="instuctionsImageView" destination="17" id="l4n-ZE-QAm"/>
+                <outlet property="lockButton" destination="7" id="Q6Z-xP-SOZ"/>
+                <outlet property="lockButtonBottomConstraint" destination="2W5-Yc-XBG" id="nfn-0l-Vv4"/>
+                <outlet property="lockButtonHeightConstraint" destination="Ftv-QB-qtk" id="jKT-fX-LaC"/>
+                <outlet property="lockButtonLeadingConstraint" destination="c5x-Bk-EnD" id="PbC-9W-yMu"/>
+                <outlet property="lockButtonTopConstraint" destination="qRU-Py-u1r" id="iAm-Ps-R9l"/>
+                <outlet property="lockButtonTrailingConstraint" destination="YVA-DX-gxG" id="rdp-S3-blT"/>
+                <outlet property="lockButtonWidthConstraint" destination="PqF-OM-HBc" id="FCZ-Qt-aRY"/>
+                <outlet property="playerBarImageView" destination="4" id="0zT-fw-DlM"/>
+                <outlet property="replayButton" destination="5" id="21"/>
+                <outlet property="stopButton" destination="6" id="20"/>
+            </connections>
+            <point key="canvasLocation" x="676.79999999999995" y="76.46176911544228"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="PLAYER_FLOWER_CLICKED.png" width="58" height="58"/>
+        <image name="PLAYER_REPLAY_CLICKED.png" width="95" height="95"/>
+        <image name="PLAYER_STOP_CLICKED.png" width="95" height="95"/>
+    </resources>
+</document>

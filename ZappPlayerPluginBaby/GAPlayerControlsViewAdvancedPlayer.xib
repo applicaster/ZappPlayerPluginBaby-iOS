@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="24" customClass="GAPlayerControlsViewAdvancedPlayer">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26" customClass="GAControlerSequencedButtonView">
+                    <rect key="frame" x="0.0" y="212" width="108" height="108"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28">
+                            <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="108" id="8sj-Ea-HEv"/>
+                                <constraint firstAttribute="height" constant="108" id="vJm-Fb-Wu3"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                            <rect key="frame" x="24.5" y="24" width="59" height="60"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="AON-hs-oLI"/>
+                                <constraint firstAttribute="width" constant="59" id="sJX-sT-ur4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonTouchCancelled:" destination="26" eventType="touchCancel" id="34"/>
+                                <action selector="buttonTouchDown:" destination="26" eventType="touchDown" id="36"/>
+                                <action selector="buttonTouchUp:" destination="26" eventType="touchUpInside" id="41"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="28" firstAttribute="leading" secondItem="26" secondAttribute="leading" id="DFH-g9-pLy"/>
+                        <constraint firstAttribute="centerX" secondItem="27" secondAttribute="centerX" id="JCQ-BF-XZl"/>
+                        <constraint firstAttribute="height" constant="108" id="RL4-wV-bCv"/>
+                        <constraint firstAttribute="centerY" secondItem="27" secondAttribute="centerY" id="hg6-rC-WaT"/>
+                        <constraint firstAttribute="width" constant="108" id="jui-oS-C3d"/>
+                        <constraint firstAttribute="bottom" secondItem="28" secondAttribute="bottom" id="oJd-2F-o9f"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="_backgroundSequenceImage" destination="28" id="thM-SP-wGs"/>
+                        <outlet property="_button" destination="27" id="FfU-rZ-b9Z"/>
+                    </connections>
+                </view>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J2u-5j-3WO" userLabel="Instructions View">
+                    <rect key="frame" x="108" y="234" width="266" height="64"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="lr8-gN-EnR" userLabel="instructions background">
+                            <rect key="frame" x="0.0" y="0.0" width="266" height="64"/>
+                        </imageView>
+                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="6C5-PW-Cl0" userLabel="Instructions Label">
+                            <rect key="frame" x="20" y="0.0" width="246" height="64"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="6C5-PW-Cl0" firstAttribute="leading" secondItem="J2u-5j-3WO" secondAttribute="leading" constant="20" id="7vi-dY-N3m"/>
+                        <constraint firstAttribute="trailing" secondItem="6C5-PW-Cl0" secondAttribute="trailing" id="E4B-90-ACh"/>
+                        <constraint firstAttribute="height" constant="64" id="G4N-Qs-UM7"/>
+                        <constraint firstItem="6C5-PW-Cl0" firstAttribute="top" secondItem="J2u-5j-3WO" secondAttribute="top" id="GaN-20-gEo"/>
+                        <constraint firstAttribute="bottom" secondItem="6C5-PW-Cl0" secondAttribute="bottom" id="VNw-Vh-taF"/>
+                        <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="266" id="YDe-YJ-8Kf"/>
+                        <constraint firstItem="lr8-gN-EnR" firstAttribute="leading" secondItem="J2u-5j-3WO" secondAttribute="leading" id="dQe-4F-HGP"/>
+                        <constraint firstItem="lr8-gN-EnR" firstAttribute="top" secondItem="J2u-5j-3WO" secondAttribute="top" id="gUP-V0-eUe"/>
+                        <constraint firstAttribute="bottom" secondItem="lr8-gN-EnR" secondAttribute="bottom" id="m4O-Od-IRB"/>
+                        <constraint firstAttribute="trailing" secondItem="lr8-gN-EnR" secondAttribute="trailing" id="nF8-Hv-IuC"/>
+                    </constraints>
+                </view>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25" customClass="GAParentControlsViewType1">
+                    <rect key="frame" x="114" y="237" width="446" height="57"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29" userLabel="Replay Button">
+                            <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="57" id="YQ8-y3-BFI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="button:29:image">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_replay_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="replayTapped:" destination="25" eventType="touchUpInside" id="33"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31" userLabel="Stop Button">
+                            <rect key="frame" x="57" y="0.0" width="50" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="BLA-oH-zS9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_stop_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="stopTapped:" destination="25" eventType="touchUpInside" id="fCy-6b-XUE"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30" userLabel="Pause/Play Button">
+                            <rect key="frame" x="107" y="0.0" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="57" id="Qg5-fD-aCO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="player_pause.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_pause_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="pausePlayTapped:" destination="25" eventType="touchUpInside" id="Mz7-Rh-1KB"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b8d-k2-yTG" userLabel="hidden kicker - Buttons Container" customClass="APHiddenKickerViewContainer">
+                            <rect key="frame" x="163" y="0.0" width="283" height="57"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5KH-2Y-39Z" userLabel="back Button">
+                                    <rect key="frame" x="-3" y="0.0" width="57" height="57"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="57" id="0Hw-Lu-28E"/>
+                                        <constraint firstAttribute="width" constant="57" id="fC8-d3-1kS"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                    <state key="normal" image="player_back.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="player_back_disabled.png"/>
+                                    <state key="highlighted" image="player_back_clicked.png">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="backwardTapped:" destination="25" eventType="touchUpInside" id="Tco-D3-3a4"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pYq-2g-KzJ" userLabel="forward Button">
+                                    <rect key="frame" x="54" y="0.0" width="57" height="57"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="57" id="eX3-AA-dWn"/>
+                                        <constraint firstAttribute="height" constant="57" id="wBx-WW-OuD"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                                    <state key="normal" image="player_forward.png">
+                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <state key="disabled" image="player_forward_disabled.png"/>
+                                    <state key="highlighted" image="player_forward_clicked.png">
+                                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="forwardTapped:" destination="25" eventType="touchUpInside" id="2pg-ZH-kAJ"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG0-Ms-QE6" userLabel="Favorite Button">
+                                    <rect key="frame" x="106" y="0.0" width="57" height="57"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="57" id="0Vn-gP-Zjo"/>
+                                        <constraint firstAttribute="height" constant="57" id="87f-Qf-nkt"/>
+                                    </constraints>
+                                    <state key="normal" image="player_favorite_not_active.png">
+                                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </state>
+                                    <connections>
+                                        <action selector="favoriteButtonTapped:" destination="24" eventType="touchUpInside" id="DbP-Qt-PqH"/>
+                                    </connections>
+                                </button>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Yqq-7a-rff">
+                                    <rect key="frame" x="163" y="0.0" width="57" height="57"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="57" id="mjc-gv-c0f"/>
+                                        <constraint firstAttribute="width" constant="57" id="yRL-km-muE"/>
+                                    </constraints>
+                                </view>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgf-mU-Jwm" userLabel="Air Play View" customClass="MPVolumeView">
+                                    <rect key="frame" x="220" y="0.0" width="57" height="57"/>
+                                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="57" id="6LP-QZ-umZ"/>
+                                        <constraint firstAttribute="width" constant="57" id="zsb-og-fbe"/>
+                                    </constraints>
+                                </view>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstItem="Kgf-mU-Jwm" firstAttribute="top" secondItem="b8d-k2-yTG" secondAttribute="top" id="2cQ-Ll-Xr5"/>
+                                <constraint firstItem="Yqq-7a-rff" firstAttribute="top" secondItem="b8d-k2-yTG" secondAttribute="top" id="5hi-6Y-B6S"/>
+                                <constraint firstItem="HG0-Ms-QE6" firstAttribute="top" secondItem="b8d-k2-yTG" secondAttribute="top" id="7pU-eS-zNP"/>
+                                <constraint firstItem="5KH-2Y-39Z" firstAttribute="leading" secondItem="b8d-k2-yTG" secondAttribute="leading" constant="-3" id="Ef2-zd-A8I"/>
+                                <constraint firstItem="pYq-2g-KzJ" firstAttribute="top" secondItem="b8d-k2-yTG" secondAttribute="top" id="K22-n8-FXF"/>
+                                <constraint firstItem="Kgf-mU-Jwm" firstAttribute="leading" secondItem="Yqq-7a-rff" secondAttribute="trailing" id="mnT-SU-66d"/>
+                                <constraint firstItem="HG0-Ms-QE6" firstAttribute="leading" secondItem="pYq-2g-KzJ" secondAttribute="trailing" constant="-5" id="nmz-nQ-0LV"/>
+                                <constraint firstItem="Yqq-7a-rff" firstAttribute="leading" secondItem="HG0-Ms-QE6" secondAttribute="trailing" id="qv5-PX-ByD"/>
+                                <constraint firstItem="5KH-2Y-39Z" firstAttribute="top" secondItem="b8d-k2-yTG" secondAttribute="top" id="rhT-AH-Zn2"/>
+                                <constraint firstItem="HG0-Ms-QE6" firstAttribute="leading" secondItem="b8d-k2-yTG" secondAttribute="leading" priority="999" id="ulr-vM-eff"/>
+                                <constraint firstItem="pYq-2g-KzJ" firstAttribute="leading" secondItem="5KH-2Y-39Z" secondAttribute="trailing" id="xaX-tg-LjJ"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="29" firstAttribute="top" secondItem="25" secondAttribute="top" id="06i-it-m4G"/>
+                        <constraint firstItem="31" firstAttribute="top" secondItem="25" secondAttribute="top" id="1Zm-2a-8Yu"/>
+                        <constraint firstItem="b8d-k2-yTG" firstAttribute="top" secondItem="25" secondAttribute="top" id="7CH-Va-bPb"/>
+                        <constraint firstItem="b8d-k2-yTG" firstAttribute="height" secondItem="25" secondAttribute="height" id="Est-3K-zJg"/>
+                        <constraint firstItem="30" firstAttribute="top" secondItem="25" secondAttribute="top" id="YmB-bK-2Fb"/>
+                        <constraint firstAttribute="width" constant="446" id="ZKe-1o-fSJ"/>
+                        <constraint firstAttribute="bottom" secondItem="30" secondAttribute="bottom" id="aZh-a2-C3I"/>
+                        <constraint firstItem="b8d-k2-yTG" firstAttribute="leading" secondItem="30" secondAttribute="trailing" constant="-1" id="bFo-1g-YhP"/>
+                        <constraint firstItem="30" firstAttribute="leading" secondItem="31" secondAttribute="trailing" id="efK-kS-h6l"/>
+                        <constraint firstItem="29" firstAttribute="leading" secondItem="25" secondAttribute="leading" id="j0V-Or-Cr5"/>
+                        <constraint firstAttribute="height" constant="57" id="nhO-Nj-HYh"/>
+                        <constraint firstAttribute="trailing" secondItem="b8d-k2-yTG" secondAttribute="trailing" id="qOQ-qQ-SBF"/>
+                        <constraint firstItem="31" firstAttribute="leading" secondItem="29" secondAttribute="trailing" id="tbM-9X-q8Y"/>
+                        <constraint firstAttribute="bottom" secondItem="29" secondAttribute="bottom" id="wLD-hZ-j5v"/>
+                        <constraint firstAttribute="bottom" secondItem="31" secondAttribute="bottom" id="zly-KR-dMS"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="_pausePlayButton" destination="30" id="19a-XB-hLl"/>
+                        <outlet property="_replayButton" destination="29" id="iu7-lX-cwQ"/>
+                        <outlet property="_stopButton" destination="31" id="AMw-vy-dMp"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="J2u-5j-3WO" firstAttribute="leading" secondItem="26" secondAttribute="trailing" id="0ag-LD-I3d"/>
+                <constraint firstAttribute="bottom" secondItem="26" secondAttribute="bottom" id="CQe-PQ-v6J"/>
+                <constraint firstItem="26" firstAttribute="leading" secondItem="24" secondAttribute="leading" id="Dot-bY-xnf"/>
+                <constraint firstItem="25" firstAttribute="leading" secondItem="26" secondAttribute="trailing" constant="6" id="ZBK-oE-Jbm"/>
+                <constraint firstAttribute="bottom" secondItem="25" secondAttribute="bottom" constant="26" id="cie-Tk-0ex"/>
+                <constraint firstItem="J2u-5j-3WO" firstAttribute="centerY" secondItem="26" secondAttribute="centerY" id="kZi-0t-odY"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="_parentControls" destination="25" id="BAq-GF-bqz"/>
+                <outlet property="_sequenceButtonView" destination="26" id="gAW-KQ-FYH"/>
+                <outlet property="downloadButtonContainerView" destination="Yqq-7a-rff" id="MXC-zn-DNz"/>
+                <outlet property="favoriteButton" destination="HG0-Ms-QE6" id="qEO-Lm-wtT"/>
+                <outlet property="instructionsLabel" destination="6C5-PW-Cl0" id="hht-fa-liD"/>
+                <outlet property="instructionsView" destination="J2u-5j-3WO" id="XN9-8g-vHN"/>
+                <outlet property="instuctionsImageView" destination="lr8-gN-EnR" id="eOj-B5-8tw"/>
+                <outlet property="playerBackwardButton" destination="5KH-2Y-39Z" id="P3s-Dc-igN"/>
+                <outlet property="playerForwardButton" destination="pYq-2g-KzJ" id="id1-iO-uwj"/>
+                <outlet property="volumeView" destination="Kgf-mU-Jwm" id="0z7-I5-Ylw"/>
+            </connections>
+            <point key="canvasLocation" x="-140.80000000000001" y="16.191904047976013"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="button:29:image" width="57" height="57">
+            <mutableData key="keyedArchiveRepresentation">
+YnBsaXN0MDDUAQIDBAUGOzxYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK0HCBMU
+GR4fJSYsLzU4VSRudWxs1QkKCwwNDg8QERJWTlNTaXplViRjbGFzc1xOU0ltYWdlRmxhZ3NWTlNSZXBz
+V05TQ29sb3KAAoAMEiTAAACAA4AKWHs1NywgNTd90hUKFhhaTlMub2JqZWN0c6EXgASACdIVChoYohsc
+gAWABoAJEAXTIAohIiMkV05TLmJhc2VbTlMucmVsYXRpdmWAAIAIgAdfEIFmaWxlOi8vL0FwcGxpY2F0
+aW9ucy9YY29kZTcuMy4xLmFwcC9Db250ZW50cy9QbHVnSW5zL0lERUludGVyZmFjZUJ1aWxkZXJLaXQu
+aWRlcGx1Z2luL0NvbnRlbnRzL1Jlc291cmNlcy9JQk1pc3NpbmdJbWFnZUdseXBoLnRpZmbSJygpKlok
+Y2xhc3NuYW1lWCRjbGFzc2VzVU5TVVJMoikrWE5TT2JqZWN00icoLS5XTlNBcnJheaItK9MwMQoyMzRX
+TlNXaGl0ZVxOU0NvbG9yU3BhY2VEMCAwABADgAvSJyg2N1dOU0NvbG9yojYr0icoOTpXTlNJbWFnZaI5
+K18QD05TS2V5ZWRBcmNoaXZlctE9PlRyb290gAEACAARABoAIwAtADIANwBFAEsAVgBdAGQAcQB4AIAA
+ggCEAIkAiwCNAJYAmwCmAKgAqgCsALEAtAC2ALgAugC8AMMAywDXANkA2wDdAWEBZgFxAXoBgAGDAYwB
+kQGZAZwBowGrAbgBvQG/AcEBxgHOAdEB1gHeAeEB8wH2AfsAAAAAAAACAQAAAAAAAAA/AAAAAAAAAAAA
+AAAAAAAB/Q
+</mutableData>
+        </image>
+        <image name="player_back.png" width="57" height="57"/>
+        <image name="player_back_clicked.png" width="57" height="57"/>
+        <image name="player_back_disabled.png" width="57" height="57"/>
+        <image name="player_favorite_not_active.png" width="57" height="57"/>
+        <image name="player_forward.png" width="57" height="57"/>
+        <image name="player_forward_clicked.png" width="57" height="57"/>
+        <image name="player_forward_disabled.png" width="57" height="57"/>
+        <image name="player_pause.png" width="57" height="57"/>
+        <image name="player_pause_clicked.png" width="57" height="57"/>
+        <image name="player_replay_clicked.png" width="57" height="57"/>
+        <image name="player_stop_clicked.png" width="50" height="57"/>
+    </resources>
+</document>

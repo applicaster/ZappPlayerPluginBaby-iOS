@@ -1,0 +1,124 @@
+# iOS CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
+#
+version: 2
+jobs:
+  build:
+
+    # Specify the Xcode version to use
+    macos:
+      xcode: "10.2.1"
+    shell: /bin/bash --login -eo pipefail
+    environment:
+      - PROJECT_NAME: "ZappPlayerPluginBaby-iOS"
+      - SCHEME_NAME: "ZappPlayerPluginBaby"
+      - SCRIPTS_LOCAL_FOLDER: "~/.scripts-iOS"
+      - SCRIPTS_REPO_PATH: "git@github.com:applicaster/Scripts-iOS.git"
+      - DEPLOY_VERSION: "0.7.1"
+      - DEPLOY_COMMAND: "~/.scripts-iOS/circleCi/deployPluginFamily.sh"
+    working_directory: ~/ZappPlayerPluginBaby-iOS
+    steps:
+      - run:
+          name: Ruby - set version
+          command:  echo "ruby-2.4" > ~/.ruby-version
+
+      - run:
+          name: Ruby - version
+          command:  ruby -v
+
+      # Prepere Git and Submodules
+      - restore_cache:
+          name: Git - restore cache
+          key: Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          keys:
+            - Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}
+            - Zapp-PlayerPlugins-v1.2-{{ .Branch }}-
+            - Zapp-PlayerPlugins-v1.2-
+
+      - checkout
+
+      - save_cache:
+          name: Git - save cache
+          key: Zapp-PlayerPlugins-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          paths:
+            - ".git"
+
+      - run:
+          name: Adding scripts
+          command: |
+            if [ ! -d "$SCRIPTS_LOCAL_FOLDER" ]; then
+              git clone $SCRIPTS_REPO_PATH $SCRIPTS_LOCAL_FOLDER
+            else
+              echo "Repo exists in local path: $SCRIPTS_LOCAL_FOLDER"
+              git -C $SCRIPTS_LOCAL_FOLDER fetch
+              git -C $SCRIPTS_LOCAL_FOLDER fetch --tags
+              git -C $SCRIPTS_LOCAL_FOLDER checkout
+              git -C $SCRIPTS_LOCAL_FOLDER pull origin master
+            fi
+            git -C $SCRIPTS_LOCAL_FOLDER checkout $DEPLOY_VERSION
+
+      # Prepare Bundler
+      - restore_cache:
+          name: Bundler - restore cache
+          key: Zapp-PlayerPlugins-v1-{{ checksum "Gemfile.lock" }}
+
+      - run:
+          name: Bundler - update dependencies
+          command: bundle update
+
+      - save_cache:
+          name: Bundler - save cache
+          key: Zapp-PlayerPlugins-v1-{{ checksum "Gemfile.lock" }}
+          paths:
+            - /Users/distiller/.rubies/ruby-2.4.2/lib/ruby/gems/2.4.0/gems
+
+      # Restore Cocoapods cache, save cache on lower level, after pod update
+      - restore_cache:
+          name: CocoaPods - restore cache
+          key: Zapp-PlayerPlugins-CocoaPods-4
+
+      - run:
+          name: CocoaPods - version
+          command: bundle exec pod --version
+
+      - run:
+          name: Git - submodules update
+          command: |
+            git fetch
+            git checkout .
+            git submodule sync --recursive
+            git submodule update --init --recursive
+
+      # Pod update
+      - run:
+          name: CocoaPods - update dependencies
+          command: bundle exec pod update
+
+      # Cache CocoaPods
+      - save_cache:
+          name: CocoaPods - save cache
+          key: Zapp-PlayerPlugins-CocoaPods-4
+          paths:
+            - "~/.cocoapods"
+            - "Pods"
+            - "Podfile.lock"
+
+      # Tests
+      - run:
+          name: Tests - start
+          command: bundle exec fastlane ios test
+
+      - store_test_results:
+          name: Test results - collecting
+          path: ./CircleArtifacts/test-results
+
+      - store_artifacts:
+          name: Artifacts - collecting
+          path: ./CircleArtifacts
+
+workflows:
+  version: 2
+  build:
+    jobs:
+      - build

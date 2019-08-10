@@ -1,0 +1,71 @@
+{
+    "api": {
+        "class_name": "APBabyApplicasterPlayer",
+        "modules": [
+            "ZappPlayerPluginBaby"
+        ]
+    },
+    "dependency_repository_url": [
+        "git@github.com:applicaster/ZappPlayerPluginBaby-iOS.git"
+    ],
+    "author_name": "Roi Kedarya",
+    "author_email": "r.kedarya@applicaster.com",
+    "manifest_version": "1.4.0",
+    "name": "Baby Player Plugin",
+    "description": "Applicaster Baby Plugable player",
+    "identifier": "baby_player_plugin",
+    "type": "player",
+    "min_zapp_sdk": "12.0.0-Dev",
+    "platform": "ios",
+    "ui_builder_support": true,
+    "whitelisted_account_ids": [
+        "4fb36afb2a11e360cf000011",
+        "5b4c604579f5c1000cffdd0b",
+        "4fcb15452a11e31811000002",
+        "58b81cc348ab5c000939d2bd",
+        "57de6f2e316338000e000000",
+        "5c501e6186c6b1000c312807",
+        "56a8a34e646562000b010000"
+    ],
+    "dependency_name": "BabyPlayerPlugin",
+    "dependency_version": "1.4.0",
+    "custom_configuration_fields": [{
+        "type": "dropdown",
+        "key": "player_controller",
+        "options": [
+            "basic_player",
+            "advanced_player"
+        ]
+    },
+    {
+        "type": "checkbox",
+        "key": "should_ignore_persistant_resume_screen"
+    },
+    {
+        "type": "dropdown",
+        "key": "lock_button_position",
+        "options": [
+            "Top Right",
+            "Top Left",
+            "Bottom Left",
+            "Bottom Right"
+        ]
+    },
+    {
+        "type": "checkbox",
+        "key": "should_center_lock_instruction_message"
+    },
+    {
+        "type": "uploader",
+        "key": "ios_assets_bundle",
+        "tooltip_text": "Upload Assets For download Button as Zip File"
+    },
+    {
+        "type": "checkbox",
+        "key": "should_show_instruction_message"
+    }
+    ],
+    "targets": [
+        "mobile"
+    ]
+}
