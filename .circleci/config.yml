@@ -30,17 +30,17 @@ jobs:
       # Prepere Git and Submodules
       - restore_cache:
           name: Git - restore cache
-          key: app-ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: app-ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           keys:
-            - ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}
-            - ZappPlayerPluginBaby-v1.2-{{ .Branch }}-
-            - ZappPlayerPluginBaby-v1.2-
+            - ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}
+            - ZappPlayerPluginBaby-v1-{{ .Branch }}-
+            - ZappPlayerPluginBaby-v1-
 
       - checkout
 
       - save_cache:
           name: Git - save cache
-          key: ZappPlayerPluginBaby-v1.2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           paths:
             - ".git"
 
