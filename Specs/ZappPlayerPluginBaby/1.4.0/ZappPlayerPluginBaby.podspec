@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
     s.platform     = :ios, '10.0'
     s.requires_arc = true
 
-    s.public_header_files = 'ZappPlayerPluginBaby/*.h'
+    s.public_header_files = 'ZappPlayerPluginBaby/Classes/*.h'
     s.source_files = 'ZappPlayerPluginBaby/Classes/*.{h,m,swift}'
     
     s.resources = [
