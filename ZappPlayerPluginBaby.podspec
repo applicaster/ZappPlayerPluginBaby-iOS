@@ -14,13 +14,13 @@ Pod::Spec.new do |s|
     s.requires_arc = true
 
     s.public_header_files = 'ZappPlayerPluginBaby/*.h'
-    s.source_files = 'ZappPlayerPluginBaby/*.{h,m,swift}'
+    s.source_files = 'ZappPlayerPluginBaby/Classes/*.{h,m,swift}'
     
     s.resources = [
-    "ZappPlayerPluginBaby/*.xcassets",
-    "ZappPlayerPluginBaby/*.storyboard",
-    "ZappPlayerPluginBaby/*.xib",
-    "ZappPlayerPluginBaby/*.png"]
+    "ZappPlayerPluginBaby/Resources/*.xcassets",
+    "ZappPlayerPluginBaby/Resources/*.storyboard",
+    "ZappPlayerPluginBaby/Resources/*.xib",
+    "ZappPlayerPluginBaby/Resources/*.png"]
     
     s.xcconfig =  {
         'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES',
