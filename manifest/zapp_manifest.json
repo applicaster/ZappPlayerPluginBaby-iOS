@@ -27,7 +27,7 @@
         "5c501e6186c6b1000c312807",
         "56a8a34e646562000b010000"
     ],
-    "dependency_name": "BabyPlayerPlugin",
+    "dependency_name": "ZappPlayerPluginBaby",
     "dependency_version": "1.4.0",
     "custom_configuration_fields": [{
         "type": "dropdown",
