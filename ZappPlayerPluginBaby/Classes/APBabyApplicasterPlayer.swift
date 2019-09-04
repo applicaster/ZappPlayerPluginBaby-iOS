@@ -201,8 +201,12 @@ open class APBabyApplicasterPlayer: APPlugablePlayerDefault {
                                             }
                         })
                     } else {
-                        //Pre hook returned and the rest of the flow will not be continued, so we navigate to home screen and close the pre hook screen
-                        ZAAppConnector.sharedInstance().navigationDelegate.navigateToHomeScreen()
+                        //Pre hook returned and the rest of the flow will not be continued, so we navigate back to where we were if possible or  to home screen if not and close the pre hook screen
+                        if let currentViewController = ZAAppConnector.sharedInstance().navigationDelegate.currentViewController() as? ZPPlugableScreenDelegate {
+                            currentViewController.removeScreenPluginFromNavigationStack()
+                        } else {
+                            ZAAppConnector.sharedInstance().navigationDelegate.navigateToHomeScreen()
+                        }
                     }
                 }
             }
