@@ -8,14 +8,14 @@
 //
 
 #import "GAControlerSequencedButtonView.h"
-#import "GAParentControlsViewType1.h"
+#import "GAParentControlsViewBabyPlayer.h"
 @import ApplicasterSDK;
 @import ZappPlugins;
 @class MPVolumeView;
 
 @interface GAPlayerControlsViewAdvancedPlayer : APPlayerControlsView{
 	IBOutlet GAControlerSequencedButtonView		*_sequenceButtonView;
-	IBOutlet GAParentControlsViewType1	*_parentControls;
+	IBOutlet GAParentControlsViewBabyPlayer	*_parentControls;
 }
 
 @property (nonatomic, weak) IBOutlet UIView *instructionsView;

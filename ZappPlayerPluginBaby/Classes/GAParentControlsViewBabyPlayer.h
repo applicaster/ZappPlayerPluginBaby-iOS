@@ -10,7 +10,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GAParentControlsViewType1 : UIView {
+@interface GAParentControlsViewBabyPlayer : UIView {
 	IBOutlet UIButton *_pausePlayButton;
 	IBOutlet UIButton *_stopButton;
 	IBOutlet UIButton *_replayButton;
