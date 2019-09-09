@@ -15,9 +15,9 @@
 		2383345322FF67E6003F0B9E /* APCustomPlayerResourceHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344322FF67E5003F0B9E /* APCustomPlayerResourceHelper.m */; };
 		2383345422FF67E6003F0B9E /* GAControlerSequencedButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344422FF67E5003F0B9E /* GAControlerSequencedButtonView.m */; };
 		2383345522FF67E6003F0B9E /* GAControlerSequencedButtonView.h in Headers */ = {isa = PBXBuildFile; fileRef = 2383344522FF67E5003F0B9E /* GAControlerSequencedButtonView.h */; };
-		2383345622FF67E6003F0B9E /* GAParentControlsViewType1.h in Headers */ = {isa = PBXBuildFile; fileRef = 2383344622FF67E5003F0B9E /* GAParentControlsViewType1.h */; };
+		2383345622FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2383344622FF67E5003F0B9E /* GAParentControlsViewBabyPlayer.h */; };
 		2383345722FF67E6003F0B9E /* APBabyApplicasterPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383344722FF67E6003F0B9E /* APBabyApplicasterPlayer.swift */; };
-		2383345822FF67E6003F0B9E /* GAParentControlsViewType1.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344822FF67E6003F0B9E /* GAParentControlsViewType1.m */; };
+		2383345822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m */; };
 		2383345922FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 2383344922FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.h */; };
 		2383345A22FF67E6003F0B9E /* ZPUICustomizationHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344A22FF67E6003F0B9E /* ZPUICustomizationHelper.m */; };
 		2383345B22FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2383344B22FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.m */; };
@@ -54,9 +54,9 @@
 		2383344322FF67E5003F0B9E /* APCustomPlayerResourceHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APCustomPlayerResourceHelper.m; sourceTree = "<group>"; };
 		2383344422FF67E5003F0B9E /* GAControlerSequencedButtonView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAControlerSequencedButtonView.m; sourceTree = "<group>"; };
 		2383344522FF67E5003F0B9E /* GAControlerSequencedButtonView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAControlerSequencedButtonView.h; sourceTree = "<group>"; };
-		2383344622FF67E5003F0B9E /* GAParentControlsViewType1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAParentControlsViewType1.h; sourceTree = "<group>"; };
+		2383344622FF67E5003F0B9E /* GAParentControlsViewBabyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAParentControlsViewBabyPlayer.h; sourceTree = "<group>"; };
 		2383344722FF67E6003F0B9E /* APBabyApplicasterPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APBabyApplicasterPlayer.swift; sourceTree = "<group>"; };
-		2383344822FF67E6003F0B9E /* GAParentControlsViewType1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAParentControlsViewType1.m; sourceTree = "<group>"; };
+		2383344822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAParentControlsViewBabyPlayer.m; sourceTree = "<group>"; };
 		2383344922FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAPlayerControlsViewBasicPlayer.h; sourceTree = "<group>"; };
 		2383344A22FF67E6003F0B9E /* ZPUICustomizationHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZPUICustomizationHelper.m; sourceTree = "<group>"; };
 		2383344B22FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAPlayerControlsViewBasicPlayer.m; sourceTree = "<group>"; };
@@ -137,8 +137,8 @@
 				2383344322FF67E5003F0B9E /* APCustomPlayerResourceHelper.m */,
 				2383344522FF67E5003F0B9E /* GAControlerSequencedButtonView.h */,
 				2383344422FF67E5003F0B9E /* GAControlerSequencedButtonView.m */,
-				2383344622FF67E5003F0B9E /* GAParentControlsViewType1.h */,
-				2383344822FF67E6003F0B9E /* GAParentControlsViewType1.m */,
+				2383344622FF67E5003F0B9E /* GAParentControlsViewBabyPlayer.h */,
+				2383344822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m */,
 				2383344122FF67E5003F0B9E /* GAPlayerControlsViewAdvancedPlayer.h */,
 				2383344D22FF67E6003F0B9E /* GAPlayerControlsViewAdvancedPlayer.m */,
 				2383344922FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.h */,
@@ -176,7 +176,7 @@
 				2383345F22FF67E6003F0B9E /* UILabel+APBabyCustomization.h in Headers */,
 				2383345C22FF67E6003F0B9E /* ZPUICustomizationHelper.h in Headers */,
 				2383345122FF67E6003F0B9E /* GAPlayerControlsViewAdvancedPlayer.h in Headers */,
-				2383345622FF67E6003F0B9E /* GAParentControlsViewType1.h in Headers */,
+				2383345622FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -288,7 +288,7 @@
 				2383345422FF67E6003F0B9E /* GAControlerSequencedButtonView.m in Sources */,
 				2383345B22FF67E6003F0B9E /* GAPlayerControlsViewBasicPlayer.m in Sources */,
 				2383346022FF67E6003F0B9E /* UILabel+APBabyCustomization.m in Sources */,
-				2383345822FF67E6003F0B9E /* GAParentControlsViewType1.m in Sources */,
+				2383345822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m in Sources */,
 				2383345322FF67E6003F0B9E /* APCustomPlayerResourceHelper.m in Sources */,
 				2383345E22FF67E6003F0B9E /* APBabyApplicasterPlayer+DownloadButtonHandler.swift in Sources */,
 			);

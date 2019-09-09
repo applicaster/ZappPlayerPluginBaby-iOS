@@ -6,11 +6,11 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "GAParentControlsViewType1.h"
+#import "GAParentControlsViewBabyPlayer.h"
 #import "APCustomPlayerResourceHelper.h"
 @import ApplicasterSDK;
 
-@implementation GAParentControlsViewType1
+@implementation GAParentControlsViewBabyPlayer
 
 #pragma mark -
 #pragma mark NSObject
