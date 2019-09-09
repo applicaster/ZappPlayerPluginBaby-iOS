@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		23443B3823229DAD007123AF /* GAParentControlsViewBabyPlayer.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23443B3623229DAC007123AF /* GAParentControlsViewBabyPlayer.xib */; };
+		23443B3923229DAD007123AF /* GAParentControlsViewBabyPlayer~ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 23443B3723229DAD007123AF /* GAParentControlsViewBabyPlayer~ipad.xib */; };
+		23443B3C23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 23443B3A23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.h */; };
+		23443B3D23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 23443B3B23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.m */; };
 		2383342622FF6610003F0B9E /* ZappPlayerPluginBaby.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2383341C22FF660F003F0B9E /* ZappPlayerPluginBaby.framework */; };
 		2383342B22FF6610003F0B9E /* ZappPlayerPluginBabyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2383342A22FF6610003F0B9E /* ZappPlayerPluginBabyTests.swift */; };
 		2383342D22FF6610003F0B9E /* ZappPlayerPluginBaby.h in Headers */ = {isa = PBXBuildFile; fileRef = 2383341F22FF660F003F0B9E /* ZappPlayerPluginBaby.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -43,6 +47,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		23443B3623229DAC007123AF /* GAParentControlsViewBabyPlayer.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GAParentControlsViewBabyPlayer.xib; sourceTree = "<group>"; };
+		23443B3723229DAD007123AF /* GAParentControlsViewBabyPlayer~ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "GAParentControlsViewBabyPlayer~ipad.xib"; sourceTree = "<group>"; };
+		23443B3A23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAPlayerControlsViewBabyPlayer.h; sourceTree = "<group>"; };
+		23443B3B23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GAPlayerControlsViewBabyPlayer.m; sourceTree = "<group>"; };
 		2383341C22FF660F003F0B9E /* ZappPlayerPluginBaby.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ZappPlayerPluginBaby.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2383341F22FF660F003F0B9E /* ZappPlayerPluginBaby.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZappPlayerPluginBaby.h; sourceTree = "<group>"; };
 		2383342022FF660F003F0B9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +145,8 @@
 				2383344322FF67E5003F0B9E /* APCustomPlayerResourceHelper.m */,
 				2383344522FF67E5003F0B9E /* GAControlerSequencedButtonView.h */,
 				2383344422FF67E5003F0B9E /* GAControlerSequencedButtonView.m */,
+				23443B3A23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.h */,
+				23443B3B23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.m */,
 				2383344622FF67E5003F0B9E /* GAParentControlsViewBabyPlayer.h */,
 				2383344822FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.m */,
 				2383344122FF67E5003F0B9E /* GAPlayerControlsViewAdvancedPlayer.h */,
@@ -158,6 +168,8 @@
 				2383346322FF67F1003F0B9E /* GAPlayerControlsViewAdvancedPlayer~ipad.xib */,
 				2383346122FF67F1003F0B9E /* GAPlayerControlsViewBasicPlayer.xib */,
 				2383346422FF67F2003F0B9E /* GAPlayerControlsViewBasicPlayer~ipad.xib */,
+				23443B3623229DAC007123AF /* GAParentControlsViewBabyPlayer.xib */,
+				23443B3723229DAD007123AF /* GAParentControlsViewBabyPlayer~ipad.xib */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -175,6 +187,7 @@
 				2383342D22FF6610003F0B9E /* ZappPlayerPluginBaby.h in Headers */,
 				2383345F22FF67E6003F0B9E /* UILabel+APBabyCustomization.h in Headers */,
 				2383345C22FF67E6003F0B9E /* ZPUICustomizationHelper.h in Headers */,
+				23443B3C23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.h in Headers */,
 				2383345122FF67E6003F0B9E /* GAPlayerControlsViewAdvancedPlayer.h in Headers */,
 				2383345622FF67E6003F0B9E /* GAParentControlsViewBabyPlayer.h in Headers */,
 			);
@@ -261,7 +274,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23443B3823229DAD007123AF /* GAParentControlsViewBabyPlayer.xib in Resources */,
 				2383346822FF67F2003F0B9E /* GAPlayerControlsViewBasicPlayer~ipad.xib in Resources */,
+				23443B3923229DAD007123AF /* GAParentControlsViewBabyPlayer~ipad.xib in Resources */,
 				2383346722FF67F2003F0B9E /* GAPlayerControlsViewAdvancedPlayer~ipad.xib in Resources */,
 				2383346622FF67F2003F0B9E /* GAPlayerControlsViewAdvancedPlayer.xib in Resources */,
 				2383346522FF67F2003F0B9E /* GAPlayerControlsViewBasicPlayer.xib in Resources */,
@@ -282,6 +297,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				23443B3D23230ED3007123AF /* GAPlayerControlsViewBabyPlayer.m in Sources */,
 				2383345A22FF67E6003F0B9E /* ZPUICustomizationHelper.m in Sources */,
 				2383345D22FF67E6003F0B9E /* GAPlayerControlsViewAdvancedPlayer.m in Sources */,
 				2383345722FF67E6003F0B9E /* APBabyApplicasterPlayer.swift in Sources */,
