@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="24" customClass="GAPlayerControlsViewBabyPlayer">
+            <rect key="frame" x="0.0" y="0.0" width="568" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="26" customClass="GAControlerSequencedButtonView">
+                    <rect key="frame" x="0.0" y="212" width="108" height="108"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="28">
+                            <rect key="frame" x="0.0" y="0.0" width="108" height="108"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="108" id="8sj-Ea-HEv"/>
+                                <constraint firstAttribute="height" constant="108" id="vJm-Fb-Wu3"/>
+                            </constraints>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="27">
+                            <rect key="frame" x="24.5" y="24" width="59" height="60"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="60" id="AON-hs-oLI"/>
+                                <constraint firstAttribute="width" constant="59" id="sJX-sT-ur4"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="player_button.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="buttonTouchCancelled:" destination="26" eventType="touchCancel" id="34"/>
+                                <action selector="buttonTouchDown:" destination="26" eventType="touchDown" id="36"/>
+                                <action selector="buttonTouchUp:" destination="26" eventType="touchUpInside" id="41"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="28" firstAttribute="leading" secondItem="26" secondAttribute="leading" id="DFH-g9-pLy"/>
+                        <constraint firstAttribute="centerX" secondItem="27" secondAttribute="centerX" id="JCQ-BF-XZl"/>
+                        <constraint firstAttribute="height" constant="108" id="RL4-wV-bCv"/>
+                        <constraint firstAttribute="centerY" secondItem="27" secondAttribute="centerY" id="hg6-rC-WaT"/>
+                        <constraint firstAttribute="width" constant="108" id="jui-oS-C3d"/>
+                        <constraint firstAttribute="bottom" secondItem="28" secondAttribute="bottom" id="oJd-2F-o9f"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="_backgroundSequenceImage" destination="28" id="40"/>
+                        <outlet property="_button" destination="27" id="43"/>
+                    </connections>
+                </view>
+                <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="25" customClass="GAParentControlsViewBabyPlayer">
+                    <rect key="frame" x="114" y="237" width="347" height="57"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="29" userLabel="Replay Button">
+                            <rect key="frame" x="0.0" y="0.0" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="57" id="YQ8-y3-BFI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="player_replay_unclicked.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_replay_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="replayTapped:" destination="25" eventType="touchUpInside" id="33"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31" userLabel="Stop Button">
+                            <rect key="frame" x="57" y="0.0" width="50" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="BLA-oH-zS9"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="player_stop_unclicked.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_stop_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="stopTapped:" destination="25" eventType="touchUpInside" id="fCy-6b-XUE"/>
+                            </connections>
+                        </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kgf-mU-Jwm" userLabel="Air Play View" customClass="MPVolumeView">
+                            <rect key="frame" x="290" y="0.0" width="57" height="57"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="6LP-QZ-umZ"/>
+                                <constraint firstAttribute="width" constant="57" id="zsb-og-fbe"/>
+                            </constraints>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HG0-Ms-QE6" userLabel="Favorite Button">
+                            <rect key="frame" x="165" y="0.0" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="57" id="0Vn-gP-Zjo"/>
+                            </constraints>
+                            <state key="normal" image="player_favorite_not_active.png">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="selected" image="epg_favorite_pressed.png"/>
+                            <connections>
+                                <action selector="favoriteButtonTapped:" destination="24" eventType="touchUpInside" id="DbP-Qt-PqH"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eTh-FR-4Mj" userLabel="Download Button">
+                            <rect key="frame" x="222" y="0.0" width="57" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="57" id="85u-Kc-fd3"/>
+                            </constraints>
+                            <state key="normal" image="player_download_btn.png">
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="downloadButtonTapped:" destination="24" eventType="touchUpInside" id="QaA-nO-sNf"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="30" userLabel="Pause/Play Button">
+                            <rect key="frame" x="107" y="0.0" width="50" height="57"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="50" id="Qg5-fD-aCO"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="15"/>
+                            <state key="normal" image="player_pause.png">
+                                <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <state key="highlighted" image="player_pause_clicked.png">
+                                <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="pausePlayTapped:" destination="25" eventType="touchUpInside" id="Mz7-Rh-1KB"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstItem="29" firstAttribute="top" secondItem="25" secondAttribute="top" id="06i-it-m4G"/>
+                        <constraint firstItem="31" firstAttribute="top" secondItem="25" secondAttribute="top" id="1Zm-2a-8Yu"/>
+                        <constraint firstAttribute="bottom" secondItem="Kgf-mU-Jwm" secondAttribute="bottom" id="4OJ-Nw-jkt"/>
+                        <constraint firstItem="Kgf-mU-Jwm" firstAttribute="leading" secondItem="eTh-FR-4Mj" secondAttribute="trailing" constant="11" id="Phe-vH-17J"/>
+                        <constraint firstAttribute="bottom" secondItem="HG0-Ms-QE6" secondAttribute="bottom" id="TGB-ZM-4Tl"/>
+                        <constraint firstItem="eTh-FR-4Mj" firstAttribute="leading" secondItem="HG0-Ms-QE6" secondAttribute="trailing" id="UOa-kU-Hgd"/>
+                        <constraint firstItem="30" firstAttribute="top" secondItem="25" secondAttribute="top" id="YmB-bK-2Fb"/>
+                        <constraint firstAttribute="width" constant="347" id="ZKe-1o-fSJ"/>
+                        <constraint firstAttribute="bottom" secondItem="30" secondAttribute="bottom" id="aZh-a2-C3I"/>
+                        <constraint firstAttribute="bottom" secondItem="eTh-FR-4Mj" secondAttribute="bottom" id="cCY-bA-wQv"/>
+                        <constraint firstItem="30" firstAttribute="leading" secondItem="31" secondAttribute="trailing" id="efK-kS-h6l"/>
+                        <constraint firstItem="HG0-Ms-QE6" firstAttribute="leading" secondItem="30" secondAttribute="trailing" constant="8" id="f18-Nb-ToE"/>
+                        <constraint firstItem="Kgf-mU-Jwm" firstAttribute="top" secondItem="25" secondAttribute="top" id="gyv-f1-7uJ"/>
+                        <constraint firstItem="29" firstAttribute="leading" secondItem="25" secondAttribute="leading" id="j0V-Or-Cr5"/>
+                        <constraint firstItem="HG0-Ms-QE6" firstAttribute="top" secondItem="25" secondAttribute="top" id="kse-up-VDs"/>
+                        <constraint firstAttribute="height" constant="57" id="nhO-Nj-HYh"/>
+                        <constraint firstItem="31" firstAttribute="leading" secondItem="29" secondAttribute="trailing" id="tbM-9X-q8Y"/>
+                        <constraint firstAttribute="bottom" secondItem="29" secondAttribute="bottom" id="wLD-hZ-j5v"/>
+                        <constraint firstItem="eTh-FR-4Mj" firstAttribute="top" secondItem="25" secondAttribute="top" id="zYD-8N-58n"/>
+                        <constraint firstAttribute="bottom" secondItem="31" secondAttribute="bottom" id="zly-KR-dMS"/>
+                    </constraints>
+                    <connections>
+                        <outlet property="_pausePlayButton" destination="30" id="JCv-mv-72y"/>
+                        <outlet property="_replayButton" destination="29" id="32"/>
+                        <outlet property="_stopButton" destination="31" id="7i0-rk-mhd"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="26" secondAttribute="bottom" id="CQe-PQ-v6J"/>
+                <constraint firstItem="26" firstAttribute="leading" secondItem="24" secondAttribute="leading" id="Dot-bY-xnf"/>
+                <constraint firstItem="25" firstAttribute="leading" secondItem="26" secondAttribute="trailing" constant="6" id="ZBK-oE-Jbm"/>
+                <constraint firstAttribute="bottom" secondItem="25" secondAttribute="bottom" constant="26" id="cie-Tk-0ex"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="_parentControls" destination="25" id="35"/>
+                <outlet property="_sequenceButtonView" destination="26" id="37"/>
+                <outlet property="downloadButton" destination="eTh-FR-4Mj" id="S92-YD-gwo"/>
+                <outlet property="favoriteButton" destination="HG0-Ms-QE6" id="bhE-bf-TWG"/>
+                <outlet property="volumeView" destination="Kgf-mU-Jwm" id="wNy-ap-C3I"/>
+            </connections>
+            <point key="canvasLocation" x="643.47826086956525" y="279.91071428571428"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="epg_favorite_pressed.png" width="57" height="57"/>
+        <image name="player_button.png" width="72" height="72"/>
+        <image name="player_download_btn.png" width="57" height="57"/>
+        <image name="player_favorite_not_active.png" width="57" height="57"/>
+        <image name="player_pause.png" width="57" height="57"/>
+        <image name="player_pause_clicked.png" width="57" height="57"/>
+        <image name="player_replay_clicked.png" width="57" height="57"/>
+        <image name="player_replay_unclicked.png" width="57" height="57"/>
+        <image name="player_stop_clicked.png" width="50" height="57"/>
+        <image name="player_stop_unclicked.png" width="50" height="57"/>
+    </resources>
+</document>
