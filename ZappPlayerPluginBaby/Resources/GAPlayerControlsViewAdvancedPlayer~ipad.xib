@@ -188,7 +188,7 @@
                                         <action selector="favoriteButtonTapped:" destination="1" eventType="touchUpInside" id="Awl-Xh-UMg"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdP-pT-LLu">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TdP-pT-LLu" userLabel="Hqme Button Container View">
                                     <rect key="frame" x="200" y="0.0" width="69" height="69"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -256,9 +256,9 @@
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <connections>
+                <outlet property="HqmeButtonContainerView" destination="TdP-pT-LLu" id="Vz4-hN-ZRz"/>
                 <outlet property="_parentControls" destination="13" id="23"/>
                 <outlet property="_sequenceButtonView" destination="3" id="12"/>
-                <outlet property="downloadButtonContainerView" destination="TdP-pT-LLu" id="6Dc-Vb-hFK"/>
                 <outlet property="favoriteButton" destination="ERf-rK-tFM" id="DOJ-68-cDo"/>
                 <outlet property="instructionsLabel" destination="iUB-Pm-jU6" id="6UI-pA-o7M"/>
                 <outlet property="instructionsView" destination="hAC-y2-RfP" id="uLA-U9-Thu"/>

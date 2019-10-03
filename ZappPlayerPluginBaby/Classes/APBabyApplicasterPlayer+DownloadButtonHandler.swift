@@ -8,29 +8,29 @@
 
 import Foundation
 
-extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
+extension APBabyApplicasterPlayer : ZPHqmeButtonDelegate {
     
-    @objc public func addDownloadButton(forDownloadableItem item: ZPDownloadableItemProtocol) {
+    @objc public func addDownloadButton(forDownloadableItem item: ZPHqmeSupportingItemProtocol) {
         if let playerController = self.playerControlsView as? GAPlayerControlsViewAdvancedPlayer,
-            let downloadButtonContainer = playerController.downloadButtonContainerView,
-            item.isValidForDownload?() == true,
-            let downloadButton = ZAAppConnector.sharedInstance().hqmeDelegate?.createDownloadButton(withDelegate: self, size: downloadButtonContainer.bounds.size) {
+            let hqmeButtonContainer = playerController.hqmeButtonContainerView,
+            item.isValidForHqme?() == true,
+            let downloadButton = ZAAppConnector.sharedInstance().hqmeDelegate?.createHqmeButton(withDelegate: self, size: hqmeButtonContainer.bounds.size) {
             if let button = downloadButton as? UIView {
-                downloadButtonContainer.isHidden = false
-                downloadButtonContainer.removeAllSubviews()
-                downloadButtonContainer.addSubview(button)
+                hqmeButtonContainer.isHidden = false
+                hqmeButtonContainer.removeAllSubviews()
+                hqmeButtonContainer.addSubview(button)
                 button.translatesAutoresizingMaskIntoConstraints = false
                 let views = ["button": button]
-                downloadButtonContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[button]|", options: .alignAllCenterX, metrics: nil, views: views))
-                downloadButtonContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[button]|", options: .alignAllCenterX, metrics: nil, views: views))
+                hqmeButtonContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[button]|", options: .alignAllCenterX, metrics: nil, views: views))
+                hqmeButtonContainer.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[button]|", options: .alignAllCenterX, metrics: nil, views: views))
                 
-                if let itemOfflineState = ZAAppConnector.sharedInstance().hqmeDelegate?.getItemOfflineState(forItem: item) {
+                if let itemOfflineState = ZAAppConnector.sharedInstance().hqmeDelegate?.getState(for: item) {
                     switch itemOfflineState {
-                    case .downloaded:
-                        downloadButton.downloadStateChange(to: .downloaded)
+                    case .completed:
+                        downloadButton.hqmeStateChange(to: .completed)
                         break
-                    case .downloadInProgress:
-                        downloadButton.downloadStateChange(to: .downloading)
+                    case .inProgress:
+                        downloadButton.hqmeStateChange(to: .inProgress)
                         break
                     default:
                         break
@@ -40,46 +40,46 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
         }
     }
     
-    public func downloadButton(_ downloadButton: ZPDownloadButtonProtocol, stateChanged state: ZPDownloadButtonState) {
-        let currentItem = getCurrentDownloadableItem()
+    public func hqmeButton(_ button: ZPHqmeButtonProtocol, stateChanged state: ZPHqmeButtonState) {
+        let currentItem = getCurrentHqmeSupportingItem()
         guard let playableItem = currentItem else {
             return
         }
         
         switch state {
         case .error:
-            ZAAppConnector.sharedInstance().hqmeDelegate?.cancelDownloading(playableItem)
+            ZAAppConnector.sharedInstance().hqmeDelegate?.cancelProcess(for: playableItem)
             
         default:
             break
         }
     }
     
-    public func downloadButton(_ downloadButton: ZPDownloadButtonProtocol, tappedWithState state: ZPDownloadButtonState) {
-        let currentItem = getCurrentDownloadableItem()
+    public func hqmeButton(_ button: ZPHqmeButtonProtocol, tappedWithState state: ZPHqmeButtonState) {
+        let currentItem = getCurrentHqmeSupportingItem()
         guard let playableItem = currentItem else {
             return
         }
         
         switch state {
-        case .downloaded:
-            self.presentPostDownloadAlert(for: downloadButton, model: playableItem)
+        case .completed:
+            self.presentPostDownloadAlert(for: button, model: playableItem)
             break
-        case .startDownload:
+        case .initial:
             if ZAAppConnector.sharedInstance().connectivityDelegate.getCurrentConnectivityState() == .cellular {
-                self.presentPreDownloadOn3gAlert(for: downloadButton, model: playableItem)
+                self.presentPreDownloadOn3gAlert(for: button, model: playableItem)
             }
             else {
-                self.continueDownloadFlow(for: downloadButton, model: playableItem)
+                self.continueDownloadFlow(for: button, model: playableItem)
             }
             break
-        case .downloading:
-            ZAAppConnector.sharedInstance().hqmeDelegate?.cancelDownloading(playableItem)
+        case .inProgress:
+            ZAAppConnector.sharedInstance().hqmeDelegate?.cancelProcess(for: playableItem)
             //update state to initial after cleanp
-            downloadButton.downloadStateChange(to: .startDownload)
+            button.hqmeStateChange(to: .initial)//downloadStateChange(to: .startDownload)
             break
         case .error:
-            self.presentPostErrorAlert(for: downloadButton, model: playableItem)
+            self.presentPostErrorAlert(for: button, model: playableItem)
             break
         default:
             break
@@ -87,32 +87,32 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
         }
     }
     
-    public func downloadStateChangeNotificationName() -> String? {
-        let currentItem = getCurrentDownloadableItem()
+    public func hqmeStateChangeNotificationName() -> String? {
+        let currentItem = getCurrentHqmeSupportingItem()
         guard let playableItem = currentItem,
             let identifier = playableItem.objectIdentifier?() else {
                 return nil
         }
-        return "AssetDownloadStateChanged"+identifier.md5Hash()
+        return "AssetHqmeStateChanged"+identifier.md5Hash()
     }
     
-    public func downloadingProgressChangeNotificationName() -> String? {
-        let currentItem = getCurrentDownloadableItem()
+    public func hqmeInProgressChangeNotificationName() -> String? {
+        let currentItem = getCurrentHqmeSupportingItem()
         guard let playableItem = currentItem,
             let identifier = playableItem.objectIdentifier?() else {
                 return nil
         }
-        return "AssetDownloadProgressChanged"+identifier.md5Hash()
+        return "AssetHqmeProgressChanged"+identifier.md5Hash()
     }
     
-    public func downloadButtonCustomImagesSuffix() -> String? {
+    public func hqmeButtonCustomImagesSuffix() -> String? {
         return "_baby_player"
     }
     
-    private func continueDownloadFlow(for downloadButton: ZPDownloadButtonProtocol, model: ZPDownloadableItemProtocol) {
+    private func continueDownloadFlow(for downloadButton: ZPHqmeButtonProtocol, model: ZPHqmeSupportingItemProtocol) {
         
         if let atomEntry = model as? APAtomEntry {
-            atomEntry.fetchDownloadUrl(completion: {
+            atomEntry.fetchContentUrl(completion: {
                 self.continueDownloadFlow(for: downloadButton, model: model, fetchedUrl: true)
             })
         }
@@ -121,15 +121,15 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
         }
     }
     
-    private func continueDownloadFlow(for downloadButton: ZPDownloadButtonProtocol, model: ZPDownloadableItemProtocol, fetchedUrl: Bool) {
+    private func continueDownloadFlow(for downloadButton: ZPHqmeButtonProtocol, model: ZPHqmeSupportingItemProtocol, fetchedUrl: Bool) {
         //download the item
-        ZAAppConnector.sharedInstance().hqmeDelegate?.download(model)
+        ZAAppConnector.sharedInstance().hqmeDelegate?.startProcess(for: model)
         //update state to pending
-        downloadButton.downloadStateChange(to: .pending)
+        downloadButton.hqmeStateChange(to: .pending)
     }
     
     
-    private func presentPreDownloadOn3gAlert(for downloadButton: ZPDownloadButtonProtocol, model: ZPDownloadableItemProtocol) {
+    private func presentPreDownloadOn3gAlert(for downloadButton: ZPHqmeButtonProtocol, model: ZPHqmeSupportingItemProtocol) {
         let download: NSString = "Download"
         let cancel: NSString = "Cancel"
         
@@ -160,7 +160,7 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
                                                                                              completion: nil)
     }
     
-    private func presentPostDownloadAlert(for downloadButton: ZPDownloadButtonProtocol, model: ZPDownloadableItemProtocol) {
+    private func presentPostDownloadAlert(for downloadButton: ZPHqmeButtonProtocol, model: ZPHqmeSupportingItemProtocol) {
         let ok: NSString = "OK"
         let cancel: NSString = "Cancel"
         
@@ -183,19 +183,7 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
                                         
                                         ZAAppConnector.sharedInstance().hqmeDelegate?.dataStoreDeleteItem(model)
                                         //update state to initial after cleanp
-                                        downloadButton.downloadStateChange(to: .startDownload)
-                                        //update collection view to remove the deleted item if offline and presenting offline content
-                                        //                                        if let parentComponentModelUiTag = self.componentModel.parentModel?.uiTag {
-                                        //                                            let updateData:[String : Any] = [kUpdateComponentsUiTagTypeKey:parentComponentModelUiTag,
-                                        //                                                                             kUpdateComponentsSendModelTypeKey: true]
-                                        //                                            self.componentModel.actions = [kActionRefreshTypeKey: [updateData]]
-                                        //                                            CAFactory.perform(.refreshComponents,
-                                        //                                                              componentModel: self.componentModel as? CAComponentModel,
-                                        //                                                              withModel: self.selectedModel,
-                                        //                                                              withSelectedModel: nil,
-                                        //                                                              in: self.parent,
-                                        //                                                              with: self.parent?.view)
-                                        //                                        }
+                                        downloadButton.hqmeStateChange(to: .initial)
         })
         
         alert.addAction(cancelButton)
@@ -206,7 +194,7 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
                                                                                              completion: nil)
     }
     
-    private func presentPostErrorAlert(for downloadButton: ZPDownloadButtonProtocol, model: ZPDownloadableItemProtocol) {
+    private func presentPostErrorAlert(for downloadButton: ZPHqmeButtonProtocol, model: ZPHqmeSupportingItemProtocol) {
         let delete: NSString = "Delete"
         let retry: NSString = "Retry"
         
@@ -221,9 +209,9 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
                                         style: .default,
                                         handler: { _ in
                                             //reset state
-                                            downloadButton.downloadStateChange(to: .startDownload)
+                                            downloadButton.hqmeStateChange(to: .initial)
                                             //download again
-                                            ZAAppConnector.sharedInstance().hqmeDelegate?.download(model)
+                                            ZAAppConnector.sharedInstance().hqmeDelegate?.startProcess(for: model)
                                             
         })
         
@@ -233,7 +221,7 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
                                             //delete
                                             ZAAppConnector.sharedInstance().hqmeDelegate?.dataStoreDeleteItem(model)
                                             //update state to initial after cleanp
-                                            downloadButton.downloadStateChange(to: .startDownload)
+                                            downloadButton.hqmeStateChange(to: .initial)
         })
         
         alert.addAction(retryButton)
@@ -246,16 +234,16 @@ extension APBabyApplicasterPlayer : ZPDownloadButtonDelegate {
     
     func addDownloadButton() {
         if let _ = self.playerControlsView as? GAPlayerControlsViewAdvancedPlayer,
-            let downloadableItem = getCurrentDownloadableItem() {
+            let downloadableItem = getCurrentHqmeSupportingItem() {
             self.addDownloadButton(forDownloadableItem: downloadableItem)
         }
     }
     
-    private func getCurrentDownloadableItem() -> ZPDownloadableItemProtocol? {
-        var retVal: ZPDownloadableItemProtocol?
+    private func getCurrentHqmeSupportingItem() -> ZPHqmeSupportingItemProtocol? {
+        var retVal: ZPHqmeSupportingItemProtocol?
         if let playerViewController = playerViewController,
             let currentItem = playerViewController.playerController.currentItem {
-            if let downloadableItem = currentItem as? ZPDownloadableItemProtocol {
+            if let downloadableItem = currentItem as? ZPHqmeSupportingItemProtocol {
                 retVal = downloadableItem
             } else if let atomEntryPlayable = currentItem as? APAtomEntryPlayable {
                 retVal = atomEntryPlayable.atomEntry

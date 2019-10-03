@@ -25,7 +25,7 @@
 @property (nonatomic, weak) IBOutlet UIButton *favoriteButton;
 @property (nonatomic, weak) IBOutlet UIButton *playerForwardButton;
 @property (nonatomic, weak) IBOutlet UIButton *playerBackwardButton;
-@property (weak, nonatomic) IBOutlet UIView *downloadButtonContainerView;
+@property (weak, nonatomic) IBOutlet UIView *HqmeButtonContainerView;
 
 @property (nonatomic, assign) BOOL shouldShowInstructionMessage;
 

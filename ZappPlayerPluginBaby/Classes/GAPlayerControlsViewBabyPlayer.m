@@ -48,18 +48,13 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDownloadButton)
-                                                 name:APHQMEDidRemoveNotification
+                                                 name:APHqmeDidRemoveNotification
                                                object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(updateDownloadButton)
-                                                 name:APHQMEDidAddNotification
+                                                 name:APHqmeDidAddNotification
                                                object:nil];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                       selector:@selector(handleDownloadFinished)
-                                           name:APVodItemDownloadFinished
-                                         object:nil];
 
 	
 	[self show:NO];
@@ -153,17 +148,18 @@
     }
 }
 
-- (IBAction)downloadButtonTapped:(id)sender {
+- (IBAction)HqmeButtonTapped:(id)sender {
+    //not used in controls view advanced player
     if (self.currentPlayingItemDict) {
         if ([self isVodItemDownloaded] == NO && [self isDownloadingVodItem] == NO) {
             //add to download
-            [[NSNotificationCenter defaultCenter] postNotificationName:APPlayerControllerMarkCurrentItemForDownloadNotification object:nil];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:APPlayerControllerMarkCurrentItemForDownloadNotification object:nil];
         } else if ([self isVodItemDownloaded]) {
             //remove from download
             [[NSNotificationCenter defaultCenter] postNotificationName:APPlayerControllerDeleteCurrentItemFromCacheNotification object:nil];
         } else if ([self isDownloadingVodItem]) {
             //cancel and remove the download
-            [[NSNotificationCenter defaultCenter] postNotificationName:APPlayerControllerCancelCurrentItemFromDownloadNotification object:nil];
+            //[[NSNotificationCenter defaultCenter] postNotificationName:APPlayerControllerCancelCurrentItemFromDownloadNotification object:nil];
         }
     }
 }
@@ -184,9 +180,9 @@
 - (void)updateDownloadButton {
     if (self.currentPlayingItemDict) {
         //check if it is already been clicked
-        NSNumber *shouldMarkForDownload =[NSNumber numberWithBool: (!([self isVodItemDownloaded] || [self isDownloadingVodItem]))];
-        [self.currentPlayingItemDict setObject:shouldMarkForDownload forKey:kAPPlayerControllerPlayingItemIsDownloading];
-        [self.currentPlayingItemDict setObject:[NSNumber numberWithBool:NO] forKey:kAPPlayerControllerPlayingItemIsDownloaded];
+//        NSNumber *shouldMarkForDownload =[NSNumber numberWithBool: (!([self isVodItemDownloaded] || [self isDownloadingVodItem]))];
+//        [self.currentPlayingItemDict setObject:shouldMarkForDownload forKey:kAPPlayerControllerPlayingItemIsDownloading];
+//        [self.currentPlayingItemDict setObject:[NSNumber numberWithBool:NO] forKey:kAPPlayerControllerPlayingItemIsDownloaded];
         [self updateDownloadImage];
     }
 }
@@ -208,23 +204,16 @@
 
 }
 
-
-- (void)handleDownloadFinished {
-    [self.currentPlayingItemDict setObject:[NSNumber numberWithBool:YES] forKey:kAPPlayerControllerPlayingItemIsDownloaded];
-    [self.currentPlayingItemDict setObject:[NSNumber numberWithBool:NO]  forKey:kAPPlayerControllerPlayingItemIsDownloading];
-    [self updateDownloadImage];
-}
-
 - (BOOL)isLocalFavorite {
     return [[self.currentPlayingItemDict objectForKey:kAPPlayerControllerPlayingItemIsFavorite] boolValue];
 }
 
 - (BOOL)isVodItemDownloaded {
-    return [[self.currentPlayingItemDict objectForKey:kAPPlayerControllerPlayingItemIsDownloaded] boolValue];
+    return [[self.currentPlayingItemDict objectForKey:kAPPlayerControllerPlayingItemHqmeCompleted] boolValue];
 }
 
 - (BOOL)isDownloadingVodItem {
-    return [[self.currentPlayingItemDict objectForKey:kAPPlayerControllerPlayingItemIsDownloading] boolValue];
+    return [[self.currentPlayingItemDict objectForKey:kAPPlayerControllerPlayingItemHqmeInProgress] boolValue];
 }
 
 - (BOOL)isDeletableVodItem {
