@@ -10,12 +10,12 @@
     ],
     "author_name": "Roi Kedarya",
     "author_email": "r.kedarya@applicaster.com",
-    "manifest_version": "1.4.0",
+    "manifest_version": "2.2.0",
     "name": "Baby Player Plugin",
     "description": "Applicaster Baby Plugable player",
     "identifier": "baby_player_plugin",
     "type": "player",
-    "min_zapp_sdk": "12.0.0-Dev",
+    "min_zapp_sdk": "13.0.0-Dev",
     "platform": "ios",
     "ui_builder_support": true,
     "whitelisted_account_ids": [
@@ -28,7 +28,7 @@
         "56a8a34e646562000b010000"
     ],
     "dependency_name": "ZappPlayerPluginBaby",
-    "dependency_version": "1.4.0",
+    "dependency_version": "2.0.0",
     "custom_configuration_fields": [{
         "type": "dropdown",
         "key": "player_controller",

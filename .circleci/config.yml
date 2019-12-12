@@ -8,20 +8,20 @@ jobs:
 
     # Specify the Xcode version to use
     macos:
-      xcode: "10.2.1"
+      xcode: "12.2.1"
     shell: /bin/bash --login -eo pipefail
     environment:
       - PROJECT_NAME: "ZappPlayerPluginBaby"
       - SCHEME_NAME: "ZappPlayerPluginBaby"
       - SCRIPTS_LOCAL_FOLDER: "~/.scripts-iOS"
       - SCRIPTS_REPO_PATH: "git@github.com:applicaster/Scripts-iOS.git"
-      - DEPLOY_VERSION: "0.8.10"
+      - DEPLOY_VERSION: "0.10.0"
       - DEPLOY_COMMAND: "~/.scripts-iOS/circleCi/deploySinglePlugin.sh"
     working_directory: ~/ZappPlayerPluginBaby-iOS
     steps:
       - run:
           name: Ruby - set version
-          command:  echo "ruby-2.4" > ~/.ruby-version
+          command:  echo "ruby-2.5" > ~/.ruby-version
 
       - run:
           name: Ruby - version
@@ -30,17 +30,17 @@ jobs:
       # Prepere Git and Submodules
       - restore_cache:
           name: Git - restore cache
-          key: app-ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: app-ZappPlayerPluginBaby-v2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           keys:
-            - ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}
-            - ZappPlayerPluginBaby-v1-{{ .Branch }}-
-            - ZappPlayerPluginBaby-v1-
+            - ZappPlayerPluginBaby-v2-{{ .Branch }}-{{ .Revision }}
+            - ZappPlayerPluginBaby-v2-{{ .Branch }}-
+            - ZappPlayerPluginBaby-v2-
 
       - checkout
 
       - save_cache:
           name: Git - save cache
-          key: ZappPlayerPluginBaby-v1-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
+          key: ZappPlayerPluginBaby-v2-{{ .Branch }}-{{ .Revision }}-{{ .Environment.version_id }}
           paths:
             - ".git"
 
@@ -62,7 +62,7 @@ jobs:
       # Prepare Bundler
       - restore_cache:
           name: Bundler - restore cache
-          key: ZappPlayerPluginBaby-v1-{{ checksum "Gemfile.lock" }}
+          key: ZappPlayerPluginBaby-v2-{{ checksum "Gemfile.lock" }}
 
       - run:
           name: Bundler - update dependencies
@@ -70,7 +70,7 @@ jobs:
 
       - save_cache:
           name: Bundler - save cache
-          key: ZappPlayerPluginBaby-v1-{{ checksum "Gemfile.lock" }}
+          key: ZappPlayerPluginBaby-v2-{{ checksum "Gemfile.lock" }}
           paths:
             - /Users/distiller/.rubies/ruby-2.4.2/lib/ruby/gems/2.4.0/gems
 
