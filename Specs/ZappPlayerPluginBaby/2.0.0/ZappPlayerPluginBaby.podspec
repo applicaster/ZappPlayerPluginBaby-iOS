@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name             = "ZappPlayerPluginBaby"
-    s.version          = '2.2.0'
+    s.version          = '2.0.0'
     s.summary          = "ZappPlayerPluginBaby"
     s.description      = <<-DESC
     ZappPlayerPluginBaby plugin.

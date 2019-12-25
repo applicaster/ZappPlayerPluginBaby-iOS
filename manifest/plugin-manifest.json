@@ -17,6 +17,7 @@
     "type": "player",
     "min_zapp_sdk": "13.0.0-Dev",
     "platform": "ios",
+    "screen": true,
     "ui_builder_support": true,
     "whitelisted_account_ids": [
         "4fb36afb2a11e360cf000011",
@@ -67,5 +68,21 @@
     ],
     "targets": [
         "mobile"
+    ],
+    "hooks": {
+    "fields": [
+      {
+        "group": true,
+        "label": "Before Load",
+        "folded": true,
+        "fields": [
+          {
+            "key": "preload_plugins",
+            "type": "preload_plugins_selector",
+            "label": "Select Plugins"
+          }
+        ]
+      }
     ]
+  }
 }
