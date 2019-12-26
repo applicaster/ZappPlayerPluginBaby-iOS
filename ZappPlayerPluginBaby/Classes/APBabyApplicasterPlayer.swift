@@ -100,7 +100,7 @@ open class APBabyApplicasterPlayer: APPlugablePlayerDefault {
         }
         
         //Check that a login plugin exist and the item is not free
-        if let loginPlugin = ZPLoginManager.sharedInstance.createWithUserData() as ZPLoginProviderUserDataProtocol?,
+        if let loginPlugin = ZAAppConnector.sharedInstance().pluginsDelegate?.loginPluginsManager?.createWithUserData() as ZPLoginProviderUserDataProtocol?,
             let extensions = [kPlayableItems: self.currentPlayableItems] as? [String : NSObject] {
             
             let doUserComply = { (_ userComply: Bool) -> Void in
@@ -176,7 +176,7 @@ open class APBabyApplicasterPlayer: APPlugablePlayerDefault {
         } else {
             let playableItem = self.playerViewController?.playerController.currentItem
             let pluginModel = ZPPluginManager.pluginModels()?.filter { $0.pluginType == .Login}.first
-            if let loginPlugin = ZPLoginManager.sharedInstance.createWithUserData() as ZPLoginProviderUserDataProtocol?,
+            if let loginPlugin = ZAAppConnector.sharedInstance().pluginsDelegate?.loginPluginsManager?.createWithUserData() as ZPLoginProviderUserDataProtocol?,
                 let screenModel = ZAAppConnector.sharedInstance().genericDelegate.screenModelForPluginID(pluginID: pluginModel?.identifier, dataSource: playableItem as? NSObject) {
                 
                 ZAAppConnector.sharedInstance().genericDelegate.hookManager().performPreHook(hookedViewController:self as? UIViewController, screenID:screenModel.screenID , model: payableItems as NSObject?) { continueFlow in
